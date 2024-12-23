@@ -1,0 +1,27 @@
+{
+  "name": "automacao-cypress",
+  "version": "1.0.0",
+  "description": "Projeto de automação de testes em cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "run_tests"
+  },
+  "author": "Fabiano De Barros Silva",
+  "license": "ISC",
+  "devDependencies": {
+    "cucumber": "^6.0.7",
+    "cypress": "^13.17.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^2.0.1",
+    "node": "^23.4.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "e2e/step_definition/*js"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress-plugin-api": "^2.11.2"
+  }
+}
