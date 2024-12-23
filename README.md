@@ -2,8 +2,6 @@
 Projeto de Automação de Cypress
 Aqui está um template de README.md para um projeto de automação utilizando Cypress com BDD e Page Objects, tanto para testes de Web quanto de API.
 
-markdown
-Copiar código
 # Projeto de Automação Web e API com Cypress
 
 Este projeto de automação utiliza o Cypress para testes de Web e API, com a abordagem BDD (Behavior-Driven Development) e a arquitetura de Page Objects. Abaixo estão as instruções de como configurar e executar os testes.
@@ -62,7 +60,7 @@ Configuração do Cypress
 A configuração do Cypress pode ser feita no arquivo cypress.json. Aqui está um exemplo de configuração básica:
 
 json
-Copiar código
+
 {
   "baseUrl": "https://www.seusite.com",
   "viewportWidth": 1280,
