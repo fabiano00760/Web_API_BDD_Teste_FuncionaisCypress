@@ -41,6 +41,8 @@ npm install cypress --save-dev
 Instalar dependências adicionais para BDD e Cucumber:
 bash
 npm install @badeball/cypress-cucumber-preprocessor --save-dev
+Instalar o Cypress XPath como dependência de desenvolvimento: Execute o seguinte comando no terminal dentro do diretório do seu projeto:
+npm install -D cypress-xpath
 Estrutura do Projeto
 A estrutura do projeto segue o padrão:
 
