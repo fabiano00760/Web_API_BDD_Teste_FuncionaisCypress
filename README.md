@@ -2,8 +2,6 @@
 Projeto de Automação de Cypress
 Aqui está um template de README.md para um projeto de automação utilizando Cypress com BDD e Page Objects, tanto para testes de Web quanto de API.
 
-markdown
-Copiar código
 # Projeto de Automação Web e API com Cypress
 
 Este projeto de automação utiliza o Cypress para testes de Web e API, com a abordagem BDD (Behavior-Driven Development) e a arquitetura de Page Objects. Abaixo estão as instruções de como configurar e executar os testes.
@@ -43,6 +41,8 @@ npm install cypress --save-dev
 Instalar dependências adicionais para BDD e Cucumber:
 bash
 npm install @badeball/cypress-cucumber-preprocessor --save-dev
+Instalar o Cypress XPath como dependência de desenvolvimento: Execute o seguinte comando no terminal dentro do diretório do seu projeto:
+npm install -D cypress-xpath
 Estrutura do Projeto
 A estrutura do projeto segue o padrão:
 
@@ -62,7 +62,7 @@ Configuração do Cypress
 A configuração do Cypress pode ser feita no arquivo cypress.json. Aqui está um exemplo de configuração básica:
 
 json
-Copiar código
+
 {
   "baseUrl": "https://www.seusite.com",
   "viewportWidth": 1280,
