@@ -1,8 +1,5 @@
 import 'cypress-plugin-api';
 
-export const apiConfig = {
-  url: 'https://jsonplaceholder.typicode.com/users', // Exemplo de URL de API
-};
 
 describe('Teste API - Criação de Usuário', () => {
 
@@ -47,9 +44,6 @@ describe('Teste API - Criação de Usuário', () => {
       },
     }).then((response) => {
       expect(response.status).to.eq(201);  // Verifica se o status é 201
-      // Verifica se os dados retornados estão corretos
-      // expect(response.body).to.have.property('email', userData.email);
-      // expect(response.body).to.have.property('nome', userData.Name);
     });
   });
 
