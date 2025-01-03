@@ -9,11 +9,19 @@ describe('Teste API - Criação de Usuário', () => {
     return `fabiano${timestamp}@yahoo.com.br`;
   };
 
-
+  const generatelastName = () => {
+    const randomName = `fabiano@${Math.floor(Math.random() * 1000)}`; // Adiciona um número aleatório ao nome
+    return randomName;
+  };
 
   // Função para gerar um nome de login dinâmico
   const generateName = () => {
-    const randomName = `fabiano@${Math.floor(Math.random() * 1000)}`; // Adiciona um número aleatório ao nome
+    const randomName = `Fabiano@${Math.floor(Math.random() * 100)}`; // Adiciona um número aleatório ao nome
+    return randomName;
+  };
+0
+  const loginName = () => {
+    const randomName = `teste${Math.floor(Math.random() * 100)}`; // Adiciona um número aleatório ao nome
     return randomName;
   };
 
@@ -31,21 +39,35 @@ describe('Teste API - Criação de Usuário', () => {
       email: generateEmail(),
       Name: generateName(),
       password: generatePassword(),
+      firstName: generatelastName(),
+      loginName: loginName(),
+
     };
   
     cy.api({
       method: 'POST',
-      url: 'https://serverest.dev/usuarios', // URL correta da API
+      url: 'https://www.advantageonlineshopping.com/accountservice/accountrest/api/v1/register',
+      failOnStatusCode: false,  // Prevents the test from failing on 4xx or 5xx status codes
       body: {
-        email: userData.email,  // E-mail gerado dinamicamente
-        nome: userData.Name,    // Alterado de 'Name' para 'nome'
-        password: userData.password,  // Senha gerada dinamicamente
-        administrador: "true",   // Valor correto para administrador
+        "accountType": "USER",
+        "address": "rua lopes freire",
+        "allowOffersPromotion": true,
+        "aobUser": true,
+        "cityName": "string",
+        "country": "AUSTRALIA_AU",
+        "email": userData.email,
+        "firstName": userData.Name,
+        "lastName": userData.firstName,
+        "loginName": userData.loginName,
+        "password": userData.password,
+        "phoneNumber": "11982576455",
+        "stateProvince": "são paulo",
+        "zipcode": "04851301"
       },
     }).then((response) => {
-      expect(response.status).to.eq(201);  // Verifica se o status é 201
+      console.log(response); // Output the full response to inspect further
+      expect(response.status).to.eq(200); // Assert a successful response if appropriate
     });
+    
   });
-
-
 });

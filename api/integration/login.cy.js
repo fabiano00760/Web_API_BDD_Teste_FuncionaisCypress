@@ -3,8 +3,9 @@ import 'cypress-plugin-api';
 
 describe('Teste API - Login', () => {
   it('Deve realizar login com sucesso', () => {
-    const email = "fabiano1735921335086@yahoo.com.br";  // Exemplo de email
-    const password = 'Admin@827';       // Exemplo de senha
+    const email = 'teste@teste.com';  // Exemplo de email
+    const loginPassword = 'Teste@123456';       // Exemplo de senha
+    const loginUser = 'Teste123';
 
     cy.api({
       method: 'POST',
@@ -15,7 +16,8 @@ describe('Teste API - Login', () => {
       },
       body: {
         email,      // Email para login
-        password    // Senha para login
+        password  ,  // Senha para login
+        loginPassword
       }
     }).then((response) => {
       // Verificar a resposta
@@ -24,3 +26,10 @@ describe('Teste API - Login', () => {
     });
   });
 });
+
+
+"email": "fabiano1735921335086@yahoo.com.br",
+"nome": "fabiano@49",
+"password": "Admin@827",
+"administrador": "true",
+"_id": "p4blGd3gumVVxr8P"
