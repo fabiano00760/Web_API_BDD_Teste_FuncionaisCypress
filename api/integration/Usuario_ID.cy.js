@@ -2,12 +2,12 @@ import 'cypress-plugin-api';
 
 describe('Teste API - Obter Usuário', () => {
     it('Deve retornar os dados do usuário com sucesso', () => {
-    const userId = '0S7WFu9Gtj6l2qeU';  // ID do usuário
-    const expectedEmail = 'fabiano1735498992430@yahoo.com.br'; // Email esperado
-    const expectedName = 'fabiano@312'; // Nome esperado
-    const expectedPassword = 'Admin@656'; // Senha esperada
-    const expectedAdmin = true; // Administrador esperado (booleano)
-    const expectedId = '0S7WFu9Gtj6l2qeU'; // ID esperado
+    const userId = 'p4blGd3gumVVxr8P';  // ID do usuário
+    const expectedEmail = 'fabiano1735921335086@yahoo.com.br'; // Email esperado
+    const expectedName = 'fabiano@49'; // Nome esperado
+    const expectedPassword = 'Admin@827'; // Senha esperada
+   
+  
 
       cy.api({
         method: 'GET',

@@ -5,16 +5,16 @@ import homePage from '../pages/homePage';
 
 beforeEach(() => {
   // Usando cy.session() no beforeEach para preservar a sessão entre os testes
-  cy.session('user-session', () => {
-    cy.screenshot('page-inicial');
-    loginPage.accessPage();
-    loginPage.clickBtnUSer();
-    loginPage.fillUser("standard_user");
-    loginPage.fillPassword("secret_sauce");
-    cy.screenshot('login');
-    loginPage.CheckBox();
-    loginPage.clickLogin();
-  });
+ // cy.session('user-session', () => {
+ //   cy.screenshot('page-inicial');
+ //   loginPage.accessPage();
+//    loginPage.clickBtnUSer();
+ //   loginPage.fillUser("standard_user");
+//    loginPage.fillPassword("secret_sauce");
+ //   cy.screenshot('login');
+ //   loginPage.CheckBox();
+ //   loginPage.clickLogin();
+ // });
 });
 
 Given("estar na pagina de Login", () => {

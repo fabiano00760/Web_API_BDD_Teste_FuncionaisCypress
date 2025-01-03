@@ -3,8 +3,8 @@
 import 'cypress-xpath';
 
 
-let user = "teste753";
-let password = "Adim@12345";
+let user = "Teste123";
+let password = "Teste@123456";
 
 class LoginPage {
    

@@ -3,8 +3,8 @@ import 'cypress-plugin-api';
 
 describe('Teste API - Login', () => {
   it('Deve realizar login com sucesso', () => {
-    const email = 'fulano@qa.com';  // Exemplo de email
-    const password = 'teste';       // Exemplo de senha
+    const email = "fabiano1735921335086@yahoo.com.br";  // Exemplo de email
+    const password = 'Admin@827';       // Exemplo de senha
 
     cy.api({
       method: 'POST',
