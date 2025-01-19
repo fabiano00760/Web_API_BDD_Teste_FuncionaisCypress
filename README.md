@@ -6,247 +6,78 @@ Aqui está um template de README.md para um projeto de automação utilizando Cy
 
 Este projeto de automação utiliza o Cypress para testes de Web e API, com a abordagem BDD (Behavior-Driven Development) e a arquitetura de Page Objects. Abaixo estão as instruções de como configurar e executar os testes.
 
-## Índice
 
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Configuração do Cypress](#configuração-do-cypress)
-- [Testes Web com Page Objects](#testes-web-com-page-objects)
-- [Testes de API](#testes-de-api)
-- [Executando os Testes](#executando-os-testes)
-- [Relatórios de Teste](#relatórios-de-teste)
-- [Contribuição](#contribuição)
+## Tecnologias
 
-## Pré-requisitos
+- **Cucumber** para a escrita dos cenários solicitados seguindo BDD.
+- **Javascript** como linguagem de programação.
+- **Cypress** como framework para automação de testes.
 
-Antes de iniciar, é necessário ter as seguintes ferramentas instaladas:
+## Projeto
 
-- [Node.js](https://nodejs.org/) (Recomendado: versão LTS)
-- [Cypress](https://www.cypress.io/)
-- [Cucumber](https://github.com/cypress-io/cypress-realworld-app/tree/main/cypress/support/commands)
+Este projeto é um desafio que envolve testes automatizados para um site de compras online e uma API. A estrutura do projeto está organizada usando o padrão de Page Objects.
 
-### Instalar Dependências
+### Desafio Web
 
-Clone o repositório e instale as dependências:
+Teste o site [Advantage Online Shopping](https://advantageonlineshopping.com/#/) com os seguintes cenários:
 
-```bash
-git clone https://github.com/seu-usuario/projeto-cypress.git
-cd projeto-cypress
-npm install
-Instalação
-Instalar o Cypress:
-bash
-npm install cypress --save-dev
-Instalar dependências adicionais para BDD e Cucumber:
-bash
-npm install @badeball/cypress-cucumber-preprocessor --save-dev
-Instalar o Cypress XPath como dependência de desenvolvimento: Execute o seguinte comando no terminal dentro do diretório do seu projeto:
-npm install -D cypress-xpath
-Estrutura do Projeto
-A estrutura do projeto segue o padrão:
+1. **Buscar um produto:**
+   - Realize uma busca por um produto específico.
 
-bash.
-├── cypress/
-│   ├── fixtures/             # Dados para os testes
-│   ├── integration/          # Testes de integração (Web e API)
-│   │   ├── web/              # Testes de Web (utilizando Page Objects)
-│   │   ├── api/              # Testes de API
-│   │   └── steps/            # Arquivos de passos do Cucumber
-│   ├── plugins/              # Plugins do Cypress
-│   ├── support/              # Comandos personalizados e Hooks
-│   └── videos/               # Vídeos dos testes
-├── package.json              # Dependências e scripts do projeto
-└── cypress.json              # Configurações do Cypress
-Configuração do Cypress
-A configuração do Cypress pode ser feita no arquivo cypress.json. Aqui está um exemplo de configuração básica:
+2. **Incluir produto no carrinho:**
+   - Adicione o produto encontrado ao carrinho de compras.
 
-json
+3. **Validar produtos no carrinho:**
+   - Na tela de pagamento, valide os produtos incluídos no carrinho.
 
-{
-  "baseUrl": "https://www.seusite.com",
-  "viewportWidth": 1280,
-  "viewportHeight": 720,
-  "integrationFolder": "cypress/integration",
-  "video": true
-}
-Para habilitar a integração com o Cucumber, adicione as configurações abaixo no arquivo cypress/plugins/index.js:
+### Desafio API
 
-javascript
-Copiar código
-const cucumber = require('@badeball/cypress-cucumber-preprocessor').default;
+Documente e teste as APIs disponíveis em [Advantage Online Shopping API Documentation](https://www.advantageonlineshopping.com/api/docs/):
 
-module.exports = (on, config) => {
-  on('file:preprocessor', cucumber());
-  return config;
-};
-Testes Web com Page Objects
-Padrão Page Objects
-No padrão Page Object você cria uma representação das páginas da aplicação em arquivos separados. Esses arquivos contêm métodos que realizam ações na página e retornam os elementos ou resultados.
+1. **Verificar lista de produtos:**
+ - **API Endpoint:** `/catalog/api/v1/products/search`
+   - Certifique-se de que a lista exibe apenas os produtos conforme sua busca.
+   - Valide o status code da resposta do serviço.
 
-Exemplo: Página de Login (loginPage.js)
+2. **Atualizar imagem de um produto (PUT):**
+   - **API Endpoint:** `/catalog/api/v1/product/image/{userId}/{source}/{color}`
+   - Verifique se a imagem do produto foi atualizada corretamente.
+   - Confirme o id da nova imagem inserida.
+   - Valide o status code da resposta do serviço.
 
-javascript
+   **Observação:** Será necessário criar um usuário e fazer login antes de atualizar a imagem de um produto.
 
-// Elementos e acoes juntas aqui
+## Instalações
 
+Para configurar o ambiente e executar os testes, você precisará instalar as seguintes ferramentas:
 
-let user = "teste1234";
-let password = "Adim@1234";
+1. **Node.js** - Gerenciador de pacotes e ambiente de execução para Javascript.
+2. **Cypress** - Ferramenta para automação de testes end-to-end.
+3. **VSCode** - Editor de código recomendado.
+4. **Cucumber** - Framework para testes baseados em BDD.
+5. **bahmutov/cy-api** - Plugin para requisições de API no Cypress.
 
-class LoginPage {
-    url = "https://advantageonlineshopping.com/#/";
+## Comandos
 
-    accessPage(){
-        cy.visit(this.url);
-    }
+1. **Abrir o Cypress:**
 
-    clickBtnUSer(){
-        cy.get('[id="menuUser"]').click();
-    }
+   Para abrir a interface gráfica do Cypress e interagir com os testes manualmente, use o seguinte comando:
 
-    fillUser(){
-        cy.get('[name="username"]').type(user);
-    }
+   ```bash
+   npx cypress open
+   ```
 
-    fillPassword(){
-        cy.get('[name="password"]').type(password);
-    }
+   Para executar todos os testes em modo headless (sem abrir a interface gráfica), use o comando:
 
-    CheckBox(){
-        cy.get('[name="remember_me"]').click();
-    }
+   ```bash
+   npx cypress run
+   ```
 
-    clickLogin(){
-        cy.get('[id="sign_in_btn"]').click();
-    }
-}
-export default new LoginPage();
+   Para rodar apenas um teste específico, use o comando:
 
-
-Exemplo de Teste Web com Step Object:
-
-    "stepDefinitions": "e2e/step_definition/*js"
-
-// Steps vao nessa pagina, junto do import do login 
-
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import loginPage from '../pages/loginPage';
-import homePage from '../pages/homePage'
-
-Given("estar na pagina de Login", () =>{
-    loginPage.accessPage();
-})
-
-When('preencher o usuario {string}', (user) =>{
-    loginPage.clickBtnUSer()
-    loginPage.fillUser(user);
-})
-
-When('preencher a senha {string}', (password) =>{
-    loginPage.fillPassword(password);
-    loginPage.CheckBox();
-})
-
-When('clicar em login', () =>{
-    loginPage.clickLogin();
-})
-
-Then('a pagina inicial aparece', ()=>{
-    homePage.validateHome();
-})
-
-BDD:
-Feature: Pagina de Login
-  Scenario: Login na Pagina  
-    Given estar na pagina de Login
-    When preencher o usuario "standard_user"
-    When preencher a senha "secret_sauce"
-    When clicar em login
-    Then a pagina inicial aparece
-
-Testes de API
-Os testes de API podem ser realizados com os comandos nativos do Cypress para interagir com endpoints.
-
-Exemplo de Teste de API (apiTest.spec.js):
-
-javascript
-Copiar código
-describe('Testes de API', () => {
-  it('Deve retornar os detalhes do usuário com sucesso', () => {
-    cy.request('GET', 'https://api.seusite.com/usuario/123')
-      .its('status')
-      .should('equal', 200);
-  });
-
-    const newUser = {
-      name: 'Usuário Teste',
-      email: 'teste@seusite.com',
-    
-
-    cy.request('POST', 'https://api.seusite.com/usuario', newUser)
-      .its('status')
-      .should('equal', 201);
-  });
-});
-Executando os Testes
-
-Para executar os testes no modo interativo do Cypress, use o comando:
-bash
-Copiar código
-npx cypress open
-Para rodar os testes em modo headless (sem interface gráfica):
-bash
-
-npx cypress run
-Para rodar os testes específicos de Web ou API, é possível rodar de acordo com o diretório de testes:
-bash
-npx cypress run --spec 'cypress/integration/web/*.spec.js'
-npx cypress run --spec 'cypress/integration/api/*.spec.js'
-Relatórios de Teste
-Para gerar relatórios de execução de testes, você pode usar plugins como mochawesome ou cypress-mochawesome-reporter.
-
-Instale o reporter:
-bash
-
-npm install mochawesome --save-dev
-Configure no arquivo cypress.json para gerar o relatório:
-json
-Copiar código
-{
-  "reporter": "mochawesome",
-  "reporterOptions": {
-    "reportDir": "cypress/reports",
-    "overwrite": false,
-    "html": true,
-    "json": true
-  }
-}
-Depois de rodar os testes, os relatórios estarão disponíveis em cypress/reports.
-
-Contribuição
-Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias para o projeto. Para contribuir, siga os passos abaixo:
-
-Fork o repositório.
-Crie uma branch para sua modificação (git checkout -b minha-modificacao).
-Faça o commit das suas alterações (git commit -m 'Adicionando uma nova feature').
-Envie para o repositório remoto (git push origin minha-modificacao).
-Abra um Pull Request explicando suas alterações.
-Projeto desenvolvido com foco em automação de testes de Web e API utilizando Cypress e boas práticas como BDD e Page Objects. Para mais detalhes, consulte a documentação oficial do Cypress e do Cucumber.
-
-markdown
-Copiar código
-
-### Explicações adicionais:
-- **Cypress com BDD**: Para integrar o Cucumber ao Cypress, o `@badeball/cypress-cucumber-preprocessor` é utilizado para interpretar os arquivos `.feature` que definem os cenários de teste.
-- **Page Objects**: A ideia é que cada página do site ou da aplicação tenha uma representação em código, com métodos para interagir com os elementos da página.
-- **Testes Web e API**: O README explica como escrever e rodar testes tanto para a interface web quanto para as APIs, utilizando os recursos do Cypress.
-
-Esse README deve fornecer uma boa base para começar o projeto de automação!
-
-
-
-
+   ```bash
+   npx cypress run --spec "caminho/para/o/arquivo.spec.js"
+   ```
 
 
 

@@ -30,9 +30,6 @@ class buscaDeUmProduto {
         cy.xpath("//label[@translate='SHOP_NOW']").first().trigger('mouseover');
         cy.wait(1000);
         cy.xpath("//label[@translate='SHOP_NOW']").first().click({ force: true });
-
-
-
     }
 
     btnaddtocart() {

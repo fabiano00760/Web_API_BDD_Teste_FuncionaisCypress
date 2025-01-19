@@ -9,6 +9,7 @@
   "author": "Fabiano De Barros Silva",
   "license": "ISC",
   "devDependencies": {
+    "@mmisty/cypress-allure-adapter": "^3.2.2",
     "cucumber": "^6.0.7",
     "cypress": "^13.17.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "cypress-plugin-api": "^2.11.2"
+    "cypress-plugin-api": "^2.11.2",
+    "esbuild": "^0.24.2"
   }
 }

@@ -5,33 +5,29 @@ import homePage from '../pages/homePage';
 
 beforeEach(() => {
   // Usando cy.session() no beforeEach para preservar a sessão entre os testes
- // cy.session('user-session', () => {
- //   cy.screenshot('page-inicial');
- //   loginPage.accessPage();
-//    loginPage.clickBtnUSer();
- //   loginPage.fillUser("standard_user");
-//    loginPage.fillPassword("secret_sauce");
- //   cy.screenshot('login');
- //   loginPage.CheckBox();
- //   loginPage.clickLogin();
- // });
+  cy.session('user-session', () => {
+    cy.screenshot('page-inicial');
+    loginPage.accessPage();
+    loginPage.clickBtnUSer();
+    loginPage.fillUser("standard_user");
+    loginPage.fillPassword("secret_sauce");
+    loginPage.CheckBox();
+    loginPage.clickLogin();
+  });
 });
 
 Given("estar na pagina de Login", () => {
   loginPage.accessPage(); // Garante que estamos na página de login
-  cy.screenshot('login-page');
 });
 
 When('preencher o usuario {string}', (user) => {
   loginPage.clickBtnUSer();  // Ação para abrir o modal ou menu de login
   loginPage.fillUser(user);  // Preenche o campo do usuário
-  cy.screenshot('login-screen');
 });
 
 When('preencher a senha {string}', (password) => {
   loginPage.fillPassword(password);  // Preenche a senha
   loginPage.CheckBox();  // Marca o checkbox, se necessário
-  cy.screenshot('login-screen');
 });
 
 When('clicar em login', () => {

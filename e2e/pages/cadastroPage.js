@@ -3,13 +3,10 @@ import homePage from "../pages/homePage";
 // Inicializa os contadores para o usuário e senha
 let passwordCounter = 1;
 
-
-
-
 function generateDynamicUser() {
     // Gera um número aleatório de 4 dígitos
-    const randomNumber = Math.floor(10 + Math.random() * 90); // Gera números de 10 a 99
-    return `UserADm${randomNumber}`;  // Nome de usuário dinâmico como UserADm1234, UserADm58, etc.
+    const randomNumber = Math.floor(1000 + Math.random() * 9000); // Gera números de 1000 a 9999
+    return `UserADm${randomNumber}`;  // Nome de usuário dinâmico como UserADm1234, UserADm5678, etc.
 }
 
 function generateDynamicPassword() {
@@ -37,7 +34,6 @@ class CadastroPage {
         const userName = generateDynamicUser(); // Gera o nome de usuário dinâmico com números aleatórios
         cy.get('[name="usernameRegisterPage"]').type(userName);
         cy.wait(1000);
-        this.userName = userName; // Armazema o nome de usriadio para ser usada depois 
     }
 
     fillEmail() {
@@ -69,8 +65,6 @@ class CadastroPage {
         cy.get('[id="register_btn"]').and('be.enabled').trigger('mouseover').click({ force: true });
         cy.wait(1000);
     }
-    
 }
-
 
 export default new CadastroPage();
