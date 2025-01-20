@@ -4,7 +4,10 @@
   "description": "Projeto de automação de testes em cypress",
   "main": "index.js",
   "scripts": {
-    "test": "run_tests"
+    "test:api": "cypress run --env TAGS='@api'",
+    "test:ui": "cypress run --env TAGS='@ui'",
+    "test:api": "cypress run --spec 'cypress/integration/api/**/*.feature' --headless",
+    "test:ui": "cypress run --spec 'cypress/integration/ui/**/*.feature'"
   },
   "author": "Fabiano De Barros Silva",
   "license": "ISC",
@@ -18,7 +21,8 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "stepDefinitions": "e2e/step_definition/*js"
+    "stepDefinitions": "steps/stepsDefApis/*js",
+   "stepDefinitions": "e2e/step_definition/*js"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
@@ -26,4 +30,6 @@
     "cypress-plugin-api": "^2.11.2",
     "esbuild": "^0.24.2"
   }
+
+  
 }
