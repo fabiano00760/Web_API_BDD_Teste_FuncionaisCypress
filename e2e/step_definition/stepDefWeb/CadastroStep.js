@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import cadastroPage from '../pages/cadastroPage';
-import homePage from "../pages/homePage";
+import cadastroPage from '../../pages/cadastroPage';
+import homePage from "../../pages/homePage";
 
 Given("que esteja na página de cadastro", () => {
     cadastroPage.accessPage();

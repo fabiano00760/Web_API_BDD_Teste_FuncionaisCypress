@@ -1,6 +1,6 @@
 class RequestProductPost {
 
-    token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3d3cuYWR2YW50YWdlb25saW5lc2hvcHBpbmcuY29tIiwidXNlcklkIjo4MjExOTQxMjYsInN1YiI6IlRlc3RlMDQiLCJyb2xlIjoiQURNSU4ifQ.d0bKXPrcL0OSJSBU65mBaLOCFw5WVUbT8zBKisYOCIU';
+      token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3d3cuYWR2YW50YWdlb25saW5lc2hvcHBpbmcuY29tIiwidXNlcklkIjo4MjExOTQxMjYsInN1YiI6IlRlc3RlMDQiLCJyb2xlIjoiQURNSU4ifQ.d0bKXPrcL0OSJSBU65mBaLOCFw5WVUbT8zBKisYOCIU';
 
     requestPost200() {
         const endpoint = '/catalog/api/v1/product/image/821194126/%23FFFFF/WHITE';

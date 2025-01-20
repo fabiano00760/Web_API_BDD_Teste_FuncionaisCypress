@@ -1,7 +1,7 @@
 // Arquivo de teste
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import loginPage from '../pages/loginPage';
-import homePage from '../pages/homePage';
+import loginPage from '../../pages/loginPage';
+import homePage from '../../pages/homePage';
 
 beforeEach(() => {
   // Usando cy.session() no beforeEach para preservar a sessão entre os testes

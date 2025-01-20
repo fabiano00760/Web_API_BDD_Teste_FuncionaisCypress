@@ -78,6 +78,6 @@ Para configurar o ambiente e executar os testes, você precisará instalar as se
    ```bash
    npx cypress run --spec "caminho/para/o/arquivo.spec.js"
    ```
-
+   npm install --save-dev cypress-cucumber-preprocessor
 
 

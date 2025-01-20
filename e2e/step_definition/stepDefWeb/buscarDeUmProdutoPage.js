@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import buscaDeUmProduto from "../pages/buscaDeUmProdutoPage";
-import loginPage from "../pages/loginPage";
+import buscaDeUmProduto from "../../pages/buscaDeUmProdutoPage";
+import loginPage from "../../pages/loginPage";
 
 
 Given("que esteja logado com user autenticado", () => {
